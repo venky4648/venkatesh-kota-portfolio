@@ -1,0 +1,92 @@
+/* src/components/Experience/Experience.css */
+
+#experience {
+  /* uses default section padding from global.css */
+}
+
+/* ── TWO-COLUMN LAYOUT ── */
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+/* ── TIMELINE COLUMN TITLE ── */
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* ── INDIVIDUAL TIMELINE ENTRY ── */
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Vertical connecting line */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: -2.5rem;
+  width: 1px;
+  background: var(--border2);
+}
+
+/* No line below the last item */
+.timeline-item:last-child::before {
+  display: none;
+}
+
+/* Dot on the timeline */
+.timeline-dot {
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px rgba(123, 97, 255, 0.2);
+}
+
+/* ── ENTRY CONTENT ── */
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-role {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-org {
+  color: var(--accent2);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  color: var(--text2);
+  font-size: 0.87rem;
+  line-height: 1.7;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .exp-grid {
+    grid-template-columns: 1fr;
+  }
+}

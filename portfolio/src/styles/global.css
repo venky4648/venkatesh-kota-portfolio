@@ -1,0 +1,264 @@
+/* src/styles/global.css */
+/* ─────────────────────────────────────────────────────────
+   GLOBAL STYLES — CSS variables, resets, shared utilities,
+   layout helpers, animations, and base component styles.
+   Component-specific styles live in their own .css files.
+   ───────────────────────────────────────────────────────── */
+
+/* ── FONTS ── */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
+
+/* ── CSS VARIABLES — DARK THEME (default) ── */
+:root {
+  --bg: #09090f;
+  --bg2: #0e0e1a;
+  --bg3: #141425;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface2: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.08);
+  --border2: rgba(255, 255, 255, 0.14);
+  --text: #f0f0fa;
+  --text2: #9090b0;
+  --text3: #5a5a7a;
+  --accent: #7b61ff;
+  --accent2: #00d4aa;
+  --accent3: #ff6b6b;
+  --glow: rgba(123, 97, 255, 0.25);
+  --glow2: rgba(0, 212, 170, 0.2);
+  --font-display: "Syne", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --font-body: "DM Sans", sans-serif;
+}
+
+/* ── CSS VARIABLES — LIGHT THEME ── */
+[data-theme="light"] {
+  --bg: #f5f5ff;
+  --bg2: #ebebff;
+  --bg3: #e0e0f5;
+  --surface: rgba(0, 0, 0, 0.04);
+  --surface2: rgba(0, 0, 0, 0.07);
+  --border: rgba(0, 0, 0, 0.08);
+  --border2: rgba(0, 0, 0, 0.14);
+  --text: #0a0a1a;
+  --text2: #44446a;
+  --text3: #8888aa;
+  --glow: rgba(123, 97, 255, 0.12);
+  --glow2: rgba(0, 212, 170, 0.1);
+}
+
+/* ── RESET ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.4;
+}
+
+/* ── SCROLL PROGRESS BAR ── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  z-index: 9999;
+  transition: width 0.1s;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s, width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: screen;
+}
+#cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(123, 97, 255, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+}
+
+/* ── SECTION LAYOUT ── */
+section {
+  padding: 7rem 5%;
+}
+
+/* ── SHARED SECTION HEADER ELEMENTS ── */
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent2);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-tag::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent2);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.section-sub {
+  color: var(--text2);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* ── SHARED BUTTON STYLES ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.8rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 4px 20px rgba(123, 97, 255, 0.35);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(123, 97, 255, 0.5);
+  background: #8f77ff;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.8rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+/* ── SCROLL REVEAL ANIMATION ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal.active{
+  opacity: 1;
+}
+
+/* ── UTILITY CLASSES ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.max-w {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── KEYFRAME ANIMATIONS ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}

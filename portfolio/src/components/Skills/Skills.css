@@ -1,0 +1,101 @@
+/* src/components/Skills/Skills.css */
+
+#skills {
+  /* inherits default section padding from global.css */
+}
+
+.skills-header {
+  margin-bottom: 3.5rem;
+}
+
+/* ── CARD GRID ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── INDIVIDUAL CATEGORY CARD ── */
+.skill-category {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.8rem;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Coloured top accent bar per category */
+.skill-category::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill-category:nth-child(1)::before {
+  background: linear-gradient(90deg, #61dafb, #0088cc);
+}
+.skill-category:nth-child(2)::before {
+  background: linear-gradient(90deg, #68d391, #48bb78);
+}
+.skill-category:nth-child(3)::before {
+  background: linear-gradient(90deg, #fc8181, #f56565);
+}
+.skill-category:nth-child(4)::before {
+  background: linear-gradient(90deg, #fbd38d, #ed8936);
+}
+
+.skill-category:hover {
+  border-color: var(--border2);
+  transform: translateY(-4px);
+  background: var(--surface2);
+}
+
+.skill-category:hover::before {
+  opacity: 1;
+}
+
+/* ── CARD INNER ── */
+.skill-cat-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.skill-cat-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.2rem;
+}
+
+/* ── PILL TAGS ── */
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.skill-pill:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
