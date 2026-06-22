@@ -35,7 +35,7 @@ export const PROJECTS = [
     tech: ["React", "Node.js", "Express", "MongoDB", "JavaScript", "HTML", "CSS"],
     category: "fullstack",
     github: "https://github.com/venky4648/food_delivery",
-    live: null,
+    live: "https://food-delivery-app-2-one.vercel.app",
     featured: true,
   },
   {
@@ -57,7 +57,7 @@ export const PROJECTS = [
     tech: ["React", "Node.js", "Express", "MongoDB", "JavaScript", "HTML", "CSS"],
     category: "fullstack",
     github: "https://github.com/venky4648/Employee-Management-System",
-    live: null,
+    live: "https://employee-management-system-flame-eta.vercel.app",
     featured: true,
   },
   {
@@ -68,7 +68,7 @@ export const PROJECTS = [
     tech: ["React", "JavaScript", "HTML", "CSS", "Gemini API"],
     category: "frontend",
     github: "https://github.com/venky4648/GEMINI-CHATBOT",
-    live: null,
+    live: "https://chatbot-app-jade-nine.vercel.app/",
     featured: true,
   },
   {
@@ -101,7 +101,7 @@ export const PROJECTS = [
     tech: ["Python", "Flask", "SQLite", "REST API"],
     category: "backend",
     github: "https://github.com/venky4648/Bank_application",
-    live: null,
+    live: "https://bank-application-ona6.onrender.com",
     featured: false,
   },
 ];
