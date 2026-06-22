@@ -63,7 +63,7 @@ export const PROJECTS = [
   {
     id: 6,
     icon: "🤖",
-    name: "Gemini AI Chatbot",
+    name: "AI Chatbot",
     desc: "Frontend chatbot application using Gemini API to generate real-time AI responses.",
     tech: ["React", "JavaScript", "HTML", "CSS", "Gemini API"],
     category: "frontend",
