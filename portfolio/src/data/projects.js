@@ -1,19 +1,14 @@
-// src/data/projects.js
-// ─────────────────────────────────────────────────────────
-// All project data in one place. Update this file to add/
-// remove/edit your projects without touching any component.
-// ─────────────────────────────────────────────────────────
 
 export const PROJECTS = [
   {
     id: 1,
-    icon: "📸",
-    name: "Smart Attendance System",
-    desc: "Face recognition-based attendance web app that automates attendance tracking with real-time data storage and a user-friendly interface.",
-    tech: ["React", "Firebase", "JavaScript", "HTML", "CSS", "Face Recognition"],
+    icon: "🛠️",
+    name: "Service Provider Onboarding Portal",
+    desc: "Production-grade, enterprise multi-tier Service Provider Onboarding & Evaluation Portal built using the MERN stack with role-based evaluation and verification.",
+    tech: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "React", "Vite", "Tailwind CSS", "Zod"],
     category: "fullstack",
-    github: "https://github.com/venky4648/attendence",
-    live: null,
+    github: "https://github.com/venky4648/service-provider-onboarding-portal",
+    live: "https://service-provider-onboarding-portal.vercel.app/login",
     featured: true,
   },
   {
@@ -79,11 +74,22 @@ export const PROJECTS = [
     tech: ["React", "JavaScript", "HTML", "CSS"],
     category: "frontend",
     github: "https://github.com/venky4648/Amazon-clone",
-    live: null,
+    live: "https://food-delivery-app-2-d0uki6fhm-kota-venkateshs-projects.vercel.app/",
     featured: false,
   },
   {
     id: 8,
+    icon: "📸",
+    name: "Smart Attendance System",
+    desc: "Face recognition-based attendance web app that automates attendance tracking with real-time data storage and a user-friendly interface.",
+    tech: ["React", "Firebase", "JavaScript", "HTML", "CSS", "Face Recognition"],
+    category: "fullstack",
+    github: "https://github.com/venky4648/attendence",
+    live: null,
+    featured: false,
+  },
+  {
+    id: 9,
     icon: "📝",
     name: "Todo List App",
     desc: "Simple task management app to add, delete, and manage daily tasks using vanilla JavaScript.",
@@ -94,7 +100,7 @@ export const PROJECTS = [
     featured: false,
   },
   {
-    id: 9,
+    id: 10,
     icon: "🏦",
     name: "Bank Application API",
     desc: "Backend banking application built with Flask to handle account management, transactions, and basic financial operations through RESTful APIs.",
@@ -105,3 +111,4 @@ export const PROJECTS = [
     featured: false,
   },
 ];
+
