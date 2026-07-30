@@ -41,7 +41,7 @@ export const PROJECTS = [
     tech: ["Node.js", "Express", "MongoDB", "JavaScript"],
     category: "backend",
     github: "https://github.com/venky4648/irctc",
-    live: null,
+    live: "https://irctc-app-pi.vercel.app/",
     featured: true,
   },
   {
